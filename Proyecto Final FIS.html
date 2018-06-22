@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Sueldo Neto</h2>
+
+<p id="demo"></p>
+
+<script>
+
+var text = '{ "sueldo":"function() {dias=30; sdiario=140; presta=0.0025; gmedicos=0.00375; iyv=0.00625; pgi=presta+gmedicos+iyv; smes=sdiario*dias; r1=smes*pgi; sbr=(sdiario*61)*0.1125; r2=((r1*2)+sbr)/2; sueldo=smes-r2; if(sueldo<578.53) {sueldo=sueldo-11.11; return sueldo;} if(smes<4910.19) {sueldo=sueldo-238.33; return sueldo;} if(smes<8629.21) {sueldo=sueldo-692.96; return sueldo;} if(smes<10031.08) {sueldo=sueldo-917.26; return sueldo;} if(smes<12009.95) {sueldo=sueldo-1271.87; return sueldo;} return sueldo;}"}';
+var obj = JSON.parse(text);
+obj.sueldo = eval("(" + obj.sueldo + ")");
+
+document.getElementById("demo").innerHTML = obj.sueldo(); 
+
+</script>
+
+</body>
+</html>
